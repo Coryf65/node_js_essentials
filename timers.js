@@ -1,4 +1,4 @@
-const waitTime = 3000;
+const waitTime = 5000;
 const waitInterval = 500;
 let currentTime = 0;
 
@@ -8,7 +8,12 @@ let currentTime = 0;
 
 const incTime = () => {
     currentTime += waitInterval
-    console.log(`waiting ${currentTime / 1000} seconds`)
+    const p = Math.floor((currentTime / waitTime) * 100);
+    // clearing the terminal
+    process.stdout.clearLine();
+    // moving cursor to line start
+    process.stdout.cursorTo(0);
+    process.stdout.write(`waiting ... ${p}%`);
 }
 
 console.log(`setting a ${waitTime / 1000} second delay`);
@@ -16,6 +21,10 @@ console.log(`setting a ${waitTime / 1000} second delay`);
 // one line arrow function
 const timerFinished = () => {
     clearInterval(Interval);
+    // clearing the terminal
+    process.stdout.clearLine();
+    // moving cursor to line start
+    process.stdout.cursorTo(0);
     console.log("done");
 }
 
