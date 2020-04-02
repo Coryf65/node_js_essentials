@@ -32,7 +32,7 @@ process.on('exit', () => {
     
     Thank you for your answers.
     
-    Go ${activity} ${name} you can write ${lang} code later !
+    Go ${activity} ${name}, you can write ${lang} code later !
     
     `)
 })
