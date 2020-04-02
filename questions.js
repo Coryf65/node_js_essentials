@@ -12,3 +12,10 @@ const ask = (i=0) => {
 };
 
 ask(); 
+
+// this will continue to listen for data
+process.stdin.on('data', data => {
+    process.stdout.write(`\n\n ${data.toString().trim()} \n\n`);
+    // evoke an exit event
+    process.exit();
+});
