@@ -2,6 +2,11 @@
 
 // when loading other file NOT from core or npm
 // we need to supply the path
-const name = require("./myModule");
+const counter = require("./myModule");
 
-console.log(name);
+counter.inc();
+counter.inc();
+counter.inc();
+
+
+console.log(counter.getCount());
