@@ -2,6 +2,10 @@ const waitTime = 3000;
 const waitInterval = 500;
 let currentTime = 0;
 
+// run using `npm intervals`
+// this will run until it hits up against the waitTime
+
+
 const incTime = () => {
     currentTime += waitInterval
     console.log(`waiting ${currentTime / 1000} seconds`)
