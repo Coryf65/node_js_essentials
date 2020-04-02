@@ -13,9 +13,26 @@ const ask = (i=0) => {
 
 ask(); 
 
-// this will continue to listen for data
+const answers = [];
+// this will continue to listen for data, in this callback function
 process.stdin.on('data', data => {
-    process.stdout.write(`\n\n ${data.toString().trim()} \n\n`);
-    // evoke an exit event
-    process.exit();
+    answers.push(data.toString().trim());
+
+    if (answers.length < questions.length) {
+        ask(answers.length);
+    } else {
+        process.exit();
+    }
 });
+
+// event listener on Exit
+process.on('exit', () => {
+    const [name, activity, lang] = answers;
+    console.log(`
+    
+    Thank you for your answers.
+    
+    Go ${activity} ${name} you can write ${lang} code later !
+    
+    `)
+})
