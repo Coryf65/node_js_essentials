@@ -21,3 +21,13 @@ fs.readFile("./assets/funny_mug.jpg", (err, img) => {
     console.log("file contents read");
     console.log(img);
 });
+
+// error example
+fs.readFile("./assets/doesNotExist.jpg", (err, img) => {
+    if (err) {
+        console.log(`oops an error occured: ${err.message}`);
+        process.exit();
+    }
+    console.log("file contents read");
+    console.log(img);
+});
