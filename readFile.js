@@ -2,6 +2,7 @@
 
 const fs = require("fs");
 
-const text = fs.readFileSync("./assets/loremipsum.txt", "UTF-8");
-
-console.log(text);
+const text = fs.readFile("./assets/loremipsum.txt", "UTF-8", (err, text) => {
+    console.log("file contents read");
+    console.log(text);
+});
