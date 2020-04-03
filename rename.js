@@ -1,10 +1,13 @@
 const fs = require("fs");
-const colorData = require("./assets/colors.json");
 
-colorData.colorList.forEach(c => {
-  fs.appendFile("./storage-files/colors.md", `${c.color}: ${c.hex} \n`, err => {
-    if (err) {
-      throw err;
-    }
-  });
+fs.renameSync("./assets/colors.json", "./assets/colorData.json");
+
+fs.rename("./assets/notes.md", "./storage-files/notes.md", err => {
+  if (err) {
+    throw err;
+  }
 });
+
+setTimeout(() => {
+  fs.unlinkSync("./assets/alex.jpg");
+}, 4000);
